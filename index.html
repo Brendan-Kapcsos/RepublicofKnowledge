@@ -38,23 +38,27 @@ DEPEND ON</h1>
           <span class="mini-line"></span>
           <p class="connect-label">CONNECT WITH JUDGE BILLS</p>
 
-          <form class="signup-form" id="signup-form">
+          <form class="signup-form" id="heroForm" action="https://script.google.com/macros/s/AKfycbzMnJuguqnnuBKd1vn9LJFUhJO-_pbPaaOPvgOkR3XZoA1VLq9FvBqnW6SfjkH17_xA/exec" method="POST" target="hidden_iframe" novalidate>
             <div class="signup-inputs">
               <input type="text" name="name" placeholder="Name" required>
               <input type="email" name="email" placeholder="Email" required>
               <input type="text" name="address" placeholder="Address">
-              
+
               <select name="interest" required>
                 <option value="" selected disabled>Select how you'd like to help</option>
-                <option value="Request a Yard Sign">Request a Yard Sign</option>
-                <option value="Host a meet-and-greet">Host a meet-and-greet</option>
-                <option value="Connect with Chief Judge Bills">Connect with Chief Judge Bills</option>
-                <option value="Volunteer">Volunteer</option>
+                <option>Request a Yard Sign</option>
+                <option>Host a meet-and-greet</option>
+                <option>Connect with Chief Judge Bills</option>
+                <option>Volunteer</option>
               </select>
+
+              <input type="hidden" name="phone" id="heroPhoneField">
+              <input type="hidden" name="message" id="heroMessageField">
             </div>
             <button type="submit">SUBMIT</button>
-            <p class="form-status" id="form-status" aria-live="polite"></p>
           </form>
+          <p class="form-status" id="heroFormStatus" aria-live="polite"></p>
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
         </div>
       </div>
     </section>
@@ -188,54 +192,47 @@ DEPEND ON</h1>
       </div>
     </footer>
   </div>
+
   <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1FtdF5Y5wvzG5PGls4OSqlwc_S1q8RQU_2HIEB3u2c6VvRjMIT8x6SFQ-E6NOQ1iA/exec";
+    (function () {
+      const form = document.getElementById("heroForm");
+      const status = document.getElementById("heroFormStatus");
+      const hiddenIframe = document.getElementById("hidden_iframe");
+      const addressField = form.querySelector('input[name="address"]');
+      const interestField = form.querySelector('select[name="interest"]');
+      const phoneField = document.getElementById("heroPhoneField");
+      const messageField = document.getElementById("heroMessageField");
+      let submitted = false;
 
-    const signupForm = document.getElementById("signup-form");
-    const formStatus = document.getElementById("form-status");
+      function setStatus(message, state) {
+        status.textContent = message;
+        status.className = "form-status" + (state ? " is-" + state : "");
+      }
 
-    if (signupForm) {
-      signupForm.addEventListener("submit", async function (event) {
-        event.preventDefault();
+      form.addEventListener("submit", function (event) {
+        const name = form.querySelector('input[name="name"]');
+        const email = form.querySelector('input[name="email"]');
 
-        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE")) {
-          formStatus.textContent = "Add your Google Apps Script Web App URL to enable form submissions.";
-          formStatus.classList.add("is-error");
+        if (!name.value.trim() || !email.value.trim() || !interestField.value) {
+          event.preventDefault();
+          setStatus("Please complete your name, email, and selection before submitting.", "error");
           return;
         }
 
-        const submitButton = signupForm.querySelector("button[type='submit']");
-        const formData = new FormData(signupForm);
-
-        submitButton.disabled = true;
-        submitButton.textContent = "SENDING...";
-        formStatus.textContent = "Submitting...";
-        formStatus.classList.remove("is-error", "is-success");
-
-        try {
-          const response = await fetch(GOOGLE_SCRIPT_URL, {
-            method: "POST",
-            body: formData
-          });
-
-          const result = await response.json().catch(() => ({}));
-
-          if (!response.ok || result.result === "error") {
-            throw new Error(result.message || "Unable to submit form.");
-          }
-
-          signupForm.reset();
-          formStatus.textContent = result.message || "Thank you. Your submission has been received.";
-          formStatus.classList.add("is-success");
-        } catch (error) {
-          formStatus.textContent = error.message || "Something went wrong. Please try again.";
-          formStatus.classList.add("is-error");
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = "SUBMIT";
-        }
+        phoneField.value = addressField.value.trim();
+        messageField.value = interestField.value;
+        submitted = true;
+        setStatus("Submitting...", "loading");
       });
-    }
+
+      hiddenIframe.addEventListener("load", function () {
+        if (!submitted) return;
+        setStatus("Thank you. Your submission has been sent.", "success");
+        form.reset();
+        submitted = false;
+      });
+    })();
   </script>
+
 </body>
 </html>
