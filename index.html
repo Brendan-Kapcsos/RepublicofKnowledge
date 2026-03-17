@@ -38,21 +38,22 @@ DEPEND ON</h1>
           <span class="mini-line"></span>
           <p class="connect-label">CONNECT WITH JUDGE BILLS</p>
 
-          <form class="signup-form">
+          <form class="signup-form" id="signup-form">
             <div class="signup-inputs">
-              <input type="text" placeholder="Name">
-              <input type="email" placeholder="Email">
-              <input type="text" placeholder="Address">
+              <input type="text" name="name" placeholder="Name" required>
+              <input type="email" name="email" placeholder="Email" required>
+              <input type="text" name="address" placeholder="Address">
               
-              <select>
-                <option selected disabled>Select how you'd like to help</option>
-                <option>Request a Yard Sign</option>
-                <option>Host a meet-and-greet</option>
-                <option>Connect with Chief Judge Bills</option>
-                <option>Volunteer</option>
+              <select name="interest" required>
+                <option value="" selected disabled>Select how you'd like to help</option>
+                <option value="Request a Yard Sign">Request a Yard Sign</option>
+                <option value="Host a meet-and-greet">Host a meet-and-greet</option>
+                <option value="Connect with Chief Judge Bills">Connect with Chief Judge Bills</option>
+                <option value="Volunteer">Volunteer</option>
               </select>
             </div>
             <button type="submit">SUBMIT</button>
+            <p class="form-status" id="form-status" aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -187,5 +188,54 @@ DEPEND ON</h1>
       </div>
     </footer>
   </div>
+  <script>
+    const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const signupForm = document.getElementById("signup-form");
+    const formStatus = document.getElementById("form-status");
+
+    if (signupForm) {
+      signupForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE")) {
+          formStatus.textContent = "Add your Google Apps Script Web App URL to enable form submissions.";
+          formStatus.classList.add("is-error");
+          return;
+        }
+
+        const submitButton = signupForm.querySelector("button[type='submit']");
+        const formData = new FormData(signupForm);
+
+        submitButton.disabled = true;
+        submitButton.textContent = "SENDING...";
+        formStatus.textContent = "Submitting...";
+        formStatus.classList.remove("is-error", "is-success");
+
+        try {
+          const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            body: formData
+          });
+
+          const result = await response.json().catch(() => ({}));
+
+          if (!response.ok || result.result === "error") {
+            throw new Error(result.message || "Unable to submit form.");
+          }
+
+          signupForm.reset();
+          formStatus.textContent = result.message || "Thank you. Your submission has been received.";
+          formStatus.classList.add("is-success");
+        } catch (error) {
+          formStatus.textContent = error.message || "Something went wrong. Please try again.";
+          formStatus.classList.add("is-error");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "SUBMIT";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
