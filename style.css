@@ -1456,3 +1456,94 @@ clear:both;
     justify-content: center;
   }
 }
+
+
+/* -------- Community alignment + mobile image sizing fixes -------- */
+
+
+
+  .community-right{
+    width: 100%;
+    max-width: 560px;
+    padding-left: 42px;
+    padding-right: 24px;
+    justify-self: center;
+  }
+
+  .community-left{
+    padding-right: 28px;
+  }
+
+  .community-item{
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Fix mobile image scaling by using fixed-height image cards */
+@media (max-width: 768px){
+  .feature-images,
+  .community-photos{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .feature-images img,
+  .community-photos img{
+    width: 100%;
+    height: 260px !important;
+    min-height: 260px !important;
+    max-height: 260px !important;
+    aspect-ratio: auto !important;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .feature-images{
+    padding-top: 12px;
+  }
+
+  .community-left,
+  .community-right{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 640px){
+  .feature-images img,
+  .community-photos img{
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    border-radius: 0;
+  }
+
+  .community-right{
+    max-width: 100%;
+    margin: 0;
+    padding-top: 10px;
+  }
+
+  .community-item{
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 420px){
+  .feature-images img,
+  .community-photos img{
+    height: 190px !important;
+    min-height: 190px !important;
+    max-height: 190px !important;
+  }
+}
+
+/* restore original desktop alignment */
+.community-right{
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
