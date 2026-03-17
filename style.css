@@ -1762,3 +1762,26 @@ clear:both;
     max-height: 340px;
   }
 }
+
+/* Hero form submission feedback */
+.form-status{
+  grid-column:1 / -1;
+  margin:8px 0 0;
+  min-height:20px;
+  font-size:13px;
+  line-height:1.4;
+  color:#fff;
+}
+
+.form-status.is-success{
+  color:#ffffff;
+}
+
+.form-status.is-error{
+  color:#ffe3e3;
+}
+
+.signup-form button:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+}
