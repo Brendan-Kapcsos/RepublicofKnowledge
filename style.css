@@ -1762,3 +1762,27 @@ clear:both;
     max-height: 340px;
   }
 }
+
+
+
+/* --- FORCE UNIFORM SIZE FOR 'HER RECORD SPEAKS' IMAGES --- */
+.community-photos{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.community-photos img{
+  width:100%;
+  aspect-ratio:1 / 1;
+  object-fit:cover;
+  object-position:center;
+  height:auto;
+}
+
+/* Mobile still uniform but single column */
+@media (max-width:768px){
+  .community-photos{
+    grid-template-columns:1fr;
+  }
+}
