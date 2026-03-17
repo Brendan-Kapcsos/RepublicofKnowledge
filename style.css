@@ -1652,3 +1652,44 @@ clear:both;
 .community-photos{
   background: transparent;
 }
+
+
+/* -------- Consistent image ratios for cleaner alignment -------- */
+
+/* Desktop / tablet: balanced square cards */
+.feature-images img,
+.community-photos img{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Mobile: portrait-oriented cards so faces fit more naturally */
+@media (max-width: 768px){
+  .feature-images img,
+  .community-photos img{
+    width: 100%;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block;
+  }
+
+  .feature-images,
+  .community-photos{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 420px){
+  .feature-images img,
+  .community-photos img{
+    aspect-ratio: 3 / 4 !important;
+  }
+}
