@@ -1762,3 +1762,41 @@ clear:both;
     max-height: 340px;
   }
 }
+
+
+/* ---- Crop tall image to match others and slightly reduce mobile size ---- */
+
+/* Make community images consistent crop */
+.community-photos img{
+  width:100%;
+  aspect-ratio:1 / 1;
+  object-fit:cover;
+  object-position:center top;
+}
+
+/* Mobile: slightly smaller images */
+@media (max-width:768px){
+  .community-photos img{
+    width:92%;
+    margin-left:auto;
+    margin-right:auto;
+    aspect-ratio:1 / 1;
+    object-fit:cover;
+  }
+
+  .feature-images img{
+    width:92%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+@media (max-width:420px){
+  .community-photos img{
+    width:90%;
+  }
+
+  .feature-images img{
+    width:90%;
+  }
+}
