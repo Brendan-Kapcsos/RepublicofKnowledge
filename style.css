@@ -1693,3 +1693,72 @@ clear:both;
     aspect-ratio: 3 / 4 !important;
   }
 }
+
+
+/* -------- Mobile experience image order + improved community image display -------- */
+
+/* Put the experience photos below all text on mobile */
+@media (max-width: 768px){
+  .feature-row{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .feature-copy{
+    order: 1;
+  }
+
+  .feature-images{
+    order: 2;
+    margin-top: 14px;
+    padding-top: 0 !important;
+    border-top: none !important;
+  }
+}
+
+/* Alternative bottom section image treatment:
+   use natural image aspect ratios, equal-width cards, no forced crop */
+.community-photos{
+  align-items: start;
+}
+
+.community-photos img{
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  display: block;
+}
+
+/* Keep the community grid visually consistent by controlling the card containers instead */
+.community-photos{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 992px){
+  .community-photos{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px){
+  .community-photos{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .community-photos img{
+    max-height: 420px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 420px){
+  .community-photos img{
+    max-height: 340px;
+  }
+}
