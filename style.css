@@ -1547,3 +1547,50 @@ clear:both;
   padding-left: 0;
   padding-right: 0;
 }
+
+
+/* -------- Mobile image fit fix: show full images without cutting them off -------- */
+@media (max-width: 768px){
+  .feature-images img,
+  .community-photos img{
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #ffffff;
+  }
+
+  .feature-images,
+  .community-photos{
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px){
+  .feature-images img,
+  .community-photos img{
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #ffffff;
+  }
+}
+
+@media (max-width: 420px){
+  .feature-images img,
+  .community-photos img{
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+  }
+}
