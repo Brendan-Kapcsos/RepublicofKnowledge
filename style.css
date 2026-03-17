@@ -1254,3 +1254,78 @@ img{
     font-size: 11px;
   }
 }
+
+
+/* -------- Full width desktop layout fixes -------- */
+
+.site-wrap,
+.container{
+max-width:100% !important;
+width:100% !important;
+}
+
+.section-experience,
+.section-community{
+width:100%;
+}
+
+.experience-grid,
+.feature-row,
+.community-grid{
+display:grid;
+gap:32px;
+}
+
+img{
+max-width:100%;
+height:auto;
+}
+
+.feature-images,
+.community-photos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+}
+
+.hero-photo{
+background-size:cover !important;
+background-position:center !important;
+}
+
+@media (min-width:1200px){
+
+.hero{
+min-height:780px;
+}
+
+.hero-inner{
+padding-top:120px;
+}
+
+.hero-card{
+max-width:480px;
+}
+
+.hero-card h1{
+font-size:56px;
+}
+
+.section-heading h2{
+font-size:40px;
+}
+
+.record-headline{
+font-size:48px;
+}
+
+.record-copy{
+font-size:26px;
+}
+
+}
+
+.section{
+clear:both;
+}
+
