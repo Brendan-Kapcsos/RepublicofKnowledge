@@ -1930,3 +1930,45 @@ clear:both;
     height: 52px;
   }
 }
+
+
+/* ---- Experience section divider alignment fix ---- */
+
+.experience-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  align-items:stretch;
+}
+
+.experience-item{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  height:100%;
+  padding-bottom:28px;
+}
+
+/* Ensure vertical divider lines match height */
+.right-border{
+  border-right:1px solid var(--line);
+  height:100%;
+}
+
+/* Tablet / mobile adjustments */
+@media (max-width:992px){
+  .experience-grid{
+    grid-template-columns:1fr;
+  }
+
+  .right-border{
+    border-right:none;
+  }
+
+  .experience-item{
+    border-bottom:1px solid var(--line);
+  }
+
+  .experience-item:last-child{
+    border-bottom:none;
+  }
+}
