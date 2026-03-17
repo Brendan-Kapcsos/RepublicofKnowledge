@@ -24,8 +24,8 @@
 
         <div class="top-actions">
           <a href="https://Donate.com" target="_blank" class="donate-btn">DONATE</a>
-          <a href="https://Facebook.com" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://Instagram.com" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/nancynbills/" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/votenancybills/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </header>
 
@@ -182,8 +182,8 @@ DEPEND ON</h1>
         <img src="images/logo-transparent.png" alt="Nancy Bills logo" class="footer-logo">
         <div class="footer-actions">
           <a href="https://Donate.com" target="_blank" class="donate-btn">DONATE</a>
-          <a href="https://Facebook.com" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://Instagram.com" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/nancynbills/" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/votenancybills/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
         <div class="footer-meta">
           <p class="footer-disclaimer">Paid for by Friends of Nancy N. Bills</p>
@@ -193,46 +193,4 @@ DEPEND ON</h1>
     </footer>
   </div>
 
-  <script>
-    (function () {
-      const form = document.getElementById("heroForm");
-      const status = document.getElementById("heroFormStatus");
-      const hiddenIframe = document.getElementById("hidden_iframe");
-      const addressField = form.querySelector('input[name="address"]');
-      const interestField = form.querySelector('select[name="interest"]');
-      const phoneField = document.getElementById("heroPhoneField");
-      const messageField = document.getElementById("heroMessageField");
-      let submitted = false;
 
-      function setStatus(message, state) {
-        status.textContent = message;
-        status.className = "form-status" + (state ? " is-" + state : "");
-      }
-
-      form.addEventListener("submit", function (event) {
-        const name = form.querySelector('input[name="name"]');
-        const email = form.querySelector('input[name="email"]');
-
-        if (!name.value.trim() || !email.value.trim() || !interestField.value) {
-          event.preventDefault();
-          setStatus("Please complete your name, email, and selection before submitting.", "error");
-          return;
-        }
-
-        phoneField.value = addressField.value.trim();
-        messageField.value = interestField.value;
-        submitted = true;
-        setStatus("Submitting...", "loading");
-      });
-
-      hiddenIframe.addEventListener("load", function () {
-        if (!submitted) return;
-        setStatus("Thank you. Your submission has been sent.", "success");
-        form.reset();
-        submitted = false;
-      });
-    })();
-  </script>
-
-</body>
-</html>
