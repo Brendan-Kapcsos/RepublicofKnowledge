@@ -1639,3 +1639,16 @@ clear:both;
   }
 
 }
+
+/* Remove white background boxes around mobile images */
+.feature-images img,
+.community-photos img{
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Ensure containers match section background */
+.feature-images,
+.community-photos{
+  background: transparent;
+}
