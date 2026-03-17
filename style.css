@@ -1029,3 +1029,228 @@ img{
     font-size: 18px;
   }
 }
+
+
+/* ---------- Fix mobile hero scale and section separation ---------- */
+
+/* clearer section separation */
+.section{
+  position: relative;
+}
+.section-experience{
+  border-bottom: 1px solid #dddddd;
+}
+.section-community{
+  border-top: 18px solid #ffffff;
+}
+.feature-row{
+  margin-bottom: 18px;
+}
+.community-grid{
+  padding-top: 6px;
+}
+.community-photos img,
+.feature-images img{
+  border: 1px solid rgba(0,0,0,.06);
+  background: #fff;
+}
+
+/* tablet refinement */
+@media (max-width: 992px){
+  .hero{
+    min-height: 560px;
+    padding-bottom: 18px;
+  }
+
+  .hero-inner{
+    padding-top: 54px;
+  }
+
+  .hero-card{
+    width: 320px;
+    max-width: min(320px, calc(100vw - 40px));
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 18px;
+    padding: 20px 16px 16px;
+  }
+
+  .hero-card h1{
+    font-size: 28px;
+    line-height: 1.02;
+  }
+
+  .mini-line{
+    width: 56px;
+    margin: 12px auto 8px;
+  }
+
+  .connect-label{
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .signup-form input,
+  .signup-form select{
+    height: 34px !important;
+    font-size: 12px !important;
+    padding: 7px 9px !important;
+  }
+
+  .signup-form button{
+    min-height: 38px;
+    font-size: 13px;
+  }
+
+  .feature-images,
+  .community-photos{
+    gap: 16px;
+  }
+}
+
+/* phones */
+@media (max-width: 640px){
+  .hero{
+    min-height: 500px;
+    padding-bottom: 16px;
+  }
+
+  .hero-photo{
+    background-position: 72% 28% !important;
+    background-size: cover !important;
+  }
+
+  .hero-inner{
+    padding-top: 34px;
+  }
+
+  .hero-card{
+    width: 250px;
+    max-width: min(250px, calc(100vw - 28px));
+    padding: 16px 12px 14px;
+    margin-bottom: 14px;
+  }
+
+  .hero-card h1{
+    font-size: 21px;
+    line-height: 1.03;
+  }
+
+  .mini-line{
+    width: 42px;
+    height: 2px;
+    margin: 10px auto 7px;
+  }
+
+  .connect-label{
+    font-size: 10px;
+    margin-bottom: 7px;
+  }
+
+  .signup-form{
+    gap: 8px;
+  }
+
+  .signup-inputs{
+    gap: 6px;
+  }
+
+  .signup-form input,
+  .signup-form select{
+    height: 30px !important;
+    min-height: 30px !important;
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .signup-form button{
+    min-height: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .section-experience{
+    padding: 24px 0 16px;
+  }
+
+  .section-community{
+    padding: 18px 0 0;
+    border-top: 14px solid #ffffff;
+  }
+
+  .experience-grid,
+  .feature-row,
+  .community-grid{
+    row-gap: 0;
+  }
+
+  .feature-images,
+  .community-photos{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .feature-images{
+    padding-top: 12px;
+  }
+
+  .feature-copy{
+    padding-top: 16px;
+    margin-top: 4px;
+  }
+
+  .community-left{
+    padding-bottom: 18px;
+  }
+
+  .community-right{
+    padding-top: 12px;
+  }
+
+  .community-item{
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+
+  .community-item:last-child{
+    border-bottom: none;
+  }
+}
+
+/* very small phones */
+@media (max-width: 420px){
+  .hero{
+    min-height: 470px;
+  }
+
+  .hero-inner{
+    padding-top: 28px;
+  }
+
+  .hero-card{
+    width: 225px;
+    max-width: min(225px, calc(100vw - 24px));
+    padding: 14px 10px 12px;
+  }
+
+  .hero-card h1{
+    font-size: 19px;
+  }
+
+  .connect-label{
+    font-size: 9px;
+  }
+
+  .signup-form input,
+  .signup-form select{
+    height: 28px !important;
+    min-height: 28px !important;
+    font-size: 10px !important;
+  }
+
+  .signup-form button{
+    min-height: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+}
