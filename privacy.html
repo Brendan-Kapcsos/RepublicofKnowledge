@@ -74,6 +74,10 @@
       text-decoration:underline;
     }
     @media (max-width: 760px){
+      .policy-wrap{
+        width:min(calc(100% - 24px), 1000px);
+      }
+
       .privacy-header-inner{
         flex-direction:column;
         align-items:flex-start;
@@ -93,6 +97,32 @@
       }
       .policy-wrap p{
         font-size:16px;
+      }
+    }
+  
+    @media (max-width: 640px){
+      .privacy-header{
+        padding:20px 0;
+      }
+      .policy-wrap{
+        padding:22px 16px;
+        margin:18px auto 36px;
+      }
+      .policy-wrap h1{
+        font-size:28px;
+      }
+      .policy-wrap h2{
+        font-size:20px;
+      }
+      .policy-wrap p{
+        font-size:15px;
+        line-height:1.55;
+      }
+      .back-link{
+        font-size:14px;
+      }
+      .privacy-footer{
+        padding:26px 16px;
       }
     }
   </style>

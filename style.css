@@ -514,3 +514,518 @@ input,button{font:inherit}
 .privacy-link:hover{
   opacity:.85;
 }
+
+
+/* ---------- Responsive scaling improvements ---------- */
+html{
+  -webkit-text-size-adjust: 100%;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+img{
+  height: auto;
+}
+
+.site-wrap{
+  width: 100%;
+  max-width: 1280px;
+}
+
+.container{
+  width: min(calc(100% - 56px), var(--maxw));
+}
+
+.hero{
+  min-height: clamp(640px, 78vw, 800px);
+}
+
+.hero-photo{
+  background-size: cover !important;
+}
+
+.hero-card{
+  max-width: min(430px, calc(100vw - 80px));
+}
+
+.feature-images img,
+.community-photos img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Large laptops / smaller desktops */
+@media (max-width: 1200px){
+  .container{
+    width: min(calc(100% - 44px), var(--maxw));
+  }
+
+  .site-logo{
+    width: 190px;
+  }
+
+  .hero-inner{
+    padding-top: 92px;
+  }
+
+  .hero-card{
+    width: 400px;
+    margin-left: 36px;
+    padding: 30px 26px 28px;
+  }
+
+  .hero-card h1{
+    font-size: 42px;
+  }
+
+  .section-heading h2{
+    font-size: 31px;
+  }
+
+  .item-title h3{
+    font-size: 25px;
+  }
+
+  .record-headline{
+    font-size: 39px;
+  }
+
+  .record-copy{
+    font-size: 24px;
+  }
+
+  .experience-item p,
+  .feature-copy p{
+    font-size: 17px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px){
+  .container{
+    width: min(calc(100% - 32px), var(--maxw));
+  }
+
+  .topbar{
+    gap: 16px;
+    padding-top: 28px;
+  }
+
+  .site-logo{
+    width: 176px;
+  }
+
+  .donate-btn{
+    min-width: 126px;
+    height: 38px;
+    font-size: 12px;
+  }
+
+  .social-btn{
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .hero{
+    min-height: 660px;
+  }
+
+  .hero-photo{
+    background-position: 62% 32% !important;
+  }
+
+  .hero-edge-fade{
+    background:
+      linear-gradient(to right,
+        var(--navy) 0%,
+        rgba(2,40,74,0.95) 18%,
+        rgba(2,40,74,0.80) 30%,
+        rgba(2,40,74,0.45) 42%,
+        rgba(2,40,74,0.16) 52%,
+        rgba(2,40,74,0.02) 60%,
+        rgba(2,40,74,0) 68%,
+        rgba(2,40,74,0.18) 86%,
+        var(--navy) 100%),
+      linear-gradient(to bottom,
+        rgba(2,40,74,0.05) 0%,
+        rgba(2,40,74,0) 12%,
+        rgba(2,40,74,0) 86%,
+        rgba(2,40,74,0.20) 96%,
+        rgba(2,40,74,0.40) 100%);
+  }
+
+  .hero-inner{
+    padding-top: 74px;
+  }
+
+  .hero-card{
+    width: 360px;
+    margin-left: 12px;
+    margin-bottom: 36px;
+    padding: 28px 22px 24px;
+  }
+
+  .hero-card h1{
+    font-size: 38px;
+  }
+
+  .mini-line{
+    margin: 16px auto 10px;
+  }
+
+  .connect-label{
+    font-size: 14px;
+  }
+
+  .signup-form{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .signup-form button{
+    min-height: 42px;
+  }
+
+  .section-experience{
+    padding: 34px 0 22px;
+  }
+
+  .section-community{
+    padding: 24px 0 0;
+  }
+
+  .section-heading{
+    margin-bottom: 30px;
+  }
+
+  .section-heading h2{
+    font-size: 28px;
+  }
+
+  .experience-grid,
+  .feature-row,
+  .community-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .right-border{
+    border-right: none;
+  }
+
+  .experience-item{
+    min-height: auto;
+    padding: 28px 8px 26px;
+  }
+
+  .experience-item:not(:last-child){
+    border-bottom: 1px solid var(--line);
+  }
+
+  .item-title h3{
+    font-size: 24px;
+    max-width: 100%;
+  }
+
+  .experience-item p,
+  .feature-copy p,
+  .community-item p{
+    max-width: 100%;
+    margin-left: 39px;
+  }
+
+  .feature-row{
+    margin-top: 8px;
+  }
+
+  .feature-images{
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding: 16px 0 0;
+  }
+
+  .feature-copy{
+    border-left: none;
+    min-height: auto;
+    padding: 24px 0 0;
+  }
+
+  .community-left{
+    padding: 8px 0 24px;
+  }
+
+  .community-right{
+    border-left: none;
+    padding: 8px 0 0;
+  }
+
+  .record-headline{
+    font-size: 38px;
+  }
+
+  .record-copy{
+    font-size: 23px;
+    max-width: 640px;
+  }
+
+  .community-photos{
+    max-width: 100%;
+    gap: 18px;
+  }
+
+  .community-item{
+    margin-bottom: 22px;
+  }
+
+  .site-footer{
+    margin-top: 56px;
+    padding: 48px 0 56px;
+  }
+}
+
+/* Phones */
+@media (max-width: 640px){
+  .container{
+    width: min(calc(100% - 24px), var(--maxw));
+  }
+
+  .hero{
+    min-height: 620px;
+    padding-bottom: 28px;
+  }
+
+  .topbar{
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+  }
+
+  .site-logo{
+    width: 156px;
+  }
+
+  .top-actions{
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .donate-btn{
+    min-width: 118px;
+    height: 36px;
+    padding: 0 16px;
+    font-size: 11px;
+    letter-spacing: .08em;
+  }
+
+  .social-btn{
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .hero-photo{
+    background-position: 68% 30% !important;
+  }
+
+  .hero-edge-fade{
+    background:
+      linear-gradient(to right,
+        var(--navy) 0%,
+        rgba(2,40,74,0.94) 16%,
+        rgba(2,40,74,0.78) 28%,
+        rgba(2,40,74,0.44) 40%,
+        rgba(2,40,74,0.12) 52%,
+        rgba(2,40,74,0) 62%,
+        rgba(2,40,74,0.18) 90%,
+        var(--navy) 100%),
+      linear-gradient(to bottom,
+        rgba(2,40,74,0.06) 0%,
+        rgba(2,40,74,0) 12%,
+        rgba(2,40,74,0) 88%,
+        rgba(2,40,74,0.30) 100%);
+  }
+
+  .hero-inner{
+    padding-top: 54px;
+  }
+
+  .hero-card{
+    width: 100%;
+    max-width: 360px;
+    margin-left: 0;
+    margin-right: auto;
+    margin-bottom: 22px;
+    padding: 22px 18px 18px;
+  }
+
+  .hero-card h1{
+    font-size: 31px;
+    line-height: 1.03;
+  }
+
+  .mini-line{
+    width: 62px;
+    margin: 14px auto 10px;
+  }
+
+  .connect-label{
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .signup-inputs{
+    gap: 8px;
+  }
+
+  .signup-form input,
+  .signup-form select{
+    height: 38px !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+  }
+
+  .signup-form button{
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .section-experience{
+    padding: 26px 0 18px;
+  }
+
+  .section-community{
+    padding: 18px 0 0;
+  }
+
+  .section-heading{
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .heading-line{
+    width: 34px;
+  }
+
+  .section-heading h2{
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .experience-item{
+    padding: 22px 0 20px;
+  }
+
+  .item-title{
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .item-icon{
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+    font-size: 9px;
+    margin-top: 4px;
+  }
+
+  .item-title h3{
+    font-size: 20px;
+    line-height: 1.14;
+  }
+
+  .experience-item p,
+  .feature-copy p{
+    font-size: 16px;
+    line-height: 1.25;
+    margin-left: 33px;
+  }
+
+  .feature-images{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .feature-copy{
+    padding-top: 18px;
+  }
+
+  .record-headline{
+    font-size: 31px;
+    line-height: 1.08;
+    margin: 10px 0 14px;
+  }
+
+  .record-copy{
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 22px;
+  }
+
+  .community-photos{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .community-item-title{
+    font-size: 17px;
+    gap: 10px;
+  }
+
+  .small-icon{
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    font-size: 9px;
+  }
+
+  .community-item p{
+    font-size: 15px;
+    line-height: 1.25;
+    margin-left: 28px;
+  }
+
+  .footer-logo{
+    width: 190px;
+  }
+
+  .footer-meta{
+    gap: 6px;
+  }
+
+  .footer-disclaimer,
+  .privacy-link{
+    font-size: 13px;
+    text-align: center;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px){
+  .site-logo{
+    width: 144px;
+  }
+
+  .hero{
+    min-height: 600px;
+  }
+
+  .hero-card{
+    max-width: 100%;
+  }
+
+  .hero-card h1{
+    font-size: 28px;
+  }
+
+  .record-headline{
+    font-size: 28px;
+  }
+
+  .record-copy{
+    font-size: 18px;
+  }
+}
