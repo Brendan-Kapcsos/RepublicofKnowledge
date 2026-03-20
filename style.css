@@ -717,7 +717,7 @@ p {
   .hero-section {
     min-height: 300px;
     max-height: 420px;
-    background-position: 50% 10%;
+    background-position: 50% -15%;
     background-size: cover;
   }
 
@@ -868,7 +868,7 @@ p {
   .hero-section {
     min-height: 240px;
     max-height: 340px;
-    background-position: 50% 8%;
+    background-position: 50% -15%;
   }
 
   .mobile-hero-heading {
